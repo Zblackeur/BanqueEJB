@@ -62,6 +62,7 @@ public class BanqueEJBImpl implements IBanqueLocal,IBanqueRemote{
 	public void updateCompte(Compte c) {
 		Compte cu =(Compte)em.find(Compte.class, c.getCode());
 		cu.setActive(c.getActive());
+		cu.setNom(c.getNom());
 		cu.setDateCreation(c.getDateCreation());
 		cu.setSolde(c.getSolde());
 		//cu.setQuantite(c.getQuantite());

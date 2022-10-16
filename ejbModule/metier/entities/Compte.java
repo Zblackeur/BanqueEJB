@@ -15,12 +15,21 @@ import javax.persistence.*;
 
 public class Compte implements Serializable {
 
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long Code;
+	private long code;
 	
-	
+	private String nom;
 	private double solde;
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreation;
 	private boolean active;
@@ -28,13 +37,20 @@ public class Compte implements Serializable {
 
 	public Compte() {
 		super();
-	}   
+	} 
+	public Compte(double solde, Date dateCreation, boolean active,String nom) {
+		super();
+		this.nom =nom;
+		this.solde = solde;
+		this.dateCreation = dateCreation;
+		this.active = active;
+	}
 	public Long getCode() {
-		return this.Code;
+		return this.code;
 	}
 
 	public void setCode(Long Code) {
-		this.Code = Code;
+		this.code = Code;
 	}   
 	public double getSolde() {
 		return this.solde;
@@ -57,5 +73,6 @@ public class Compte implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	
    
 }
